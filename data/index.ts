@@ -1,7 +1,6 @@
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
-    { name: "Testimonials", link: "#testimonials" },
     { name: "Contact", link: "#contact" },
   ];
   
@@ -64,9 +63,9 @@ export const navItems = [
       id: 1,
       title: "BankEase",
       des: "A simple banking application created using Next.Js, Appwrite and Plaid",
-      img: "/project1.jpg",
+      img: "/project1.png.jpg",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-      link: "https://banking-bank-banking.vercel.app/",
+      link: "https://banking-bank-ease.vercel.app/",
     },
     {
       id: 2,
@@ -74,7 +73,7 @@ export const navItems = [
       des: "Simplify your video streaming experience with our in-house Netflix.",
       img: "/project2.jpg",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-      link: "https://netflix-three-beta.vercel.app/",
+      link: "https://netflix-44-beta.vercel.app/",
     },
     {
       id: 3,
