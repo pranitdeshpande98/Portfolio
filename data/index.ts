@@ -86,61 +86,6 @@ export const navItems = [
     },
   ];
   
-  export const testimonials = [
-    {
-      quote:
-        ".",
-      name: "Manager 1",
-      title: "Client 1",
-    },
-    {
-      quote:
-        ".",
-      name: "Manager 2",
-      title: "Client 2",
-    },
-    {
-      quote:
-        "",
-      name: "Manager 3",
-      title: "Client 3",
-    },
-    
-  ];
-  
-  export const companies = [
-    {
-      id: 1,
-      name: "Firebase",
-      img: "/cloud.svg",
-      nameImg: "/cloudName.svg",
-    },
-    {
-      id: 2,
-      name: "appwrite",
-      img: "/app.svg",
-      nameImg: "/appName.svg",
-    },
-    {
-      id: 3,
-      name: "HOSTINGER",
-      img: "/host.svg",
-      nameImg: "/hostName.svg",
-    },
-    {
-      id: 4,
-      name: "Supabase",
-      img: "/s.svg",
-      nameImg: "/streamName.svg",
-    },
-    {
-      id: 5,
-      name: "Django.",
-      img: "/django.svg",
-      nameImg: "/dockerName.svg",
-    },
-  ];
-  
   export const workExperience = [
     {
       id: 1,
@@ -155,20 +100,5 @@ export const navItems = [
       desc: "Led the dev of a mobile app for a client, from initial concept to deployment on e-commerce using React.js and Django.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "/exp2.svg",
-    },
-  ];
-  
-  export const socialMedia = [
-    {
-      id: 1,
-      img: "/git.svg",
-    },
-    {
-      id: 2,
-      img: "/twit.svg",
-    },
-    {
-      id: 3,
-      img: "/link.svg",
     },
   ];
