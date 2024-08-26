@@ -91,7 +91,7 @@ export const navItems = [
       des: "Built an healthcare web based system for making prior appointments with doctors",
       img: "/project4.jpg",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-      link: "https://healthcare-orcin-psi.vercel.app/",
+      link: "https://carepulse-two-delta.vercel.app/",
     },
 
   ];
