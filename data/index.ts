@@ -84,6 +84,16 @@ export const navItems = [
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
       link: "https://youtube-beta-swart.vercel.app/",
     },
+
+    {
+      id: 4,
+      title: "Healthcare - Carepulse",
+      des: "Built an healthcare web based system for making prior appointments with doctors",
+      img: "/project4.jpg",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+      link: "https://healthcare-orcin-psi.vercel.app/",
+    },
+
   ];
   
   export const workExperience = [
