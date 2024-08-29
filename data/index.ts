@@ -100,7 +100,7 @@ export const navItems = [
     {
       id: 1,
       title: "Experienced Front End Developer",
-      desc: "Assisted in the development of a web-based tax filing platform using React.js, enhancing interactivity.",
+      desc: "Engineered a web-based tax filing platform using React.js, enhancing interactivity.",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
     },
