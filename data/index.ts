@@ -94,6 +94,15 @@ export const navItems = [
       link: "https://carepulse-two-delta.vercel.app/",
     },
 
+    {
+      id:5,
+      title: "Discord - Clone",
+      des: "Built a real-time Discord clone with messaging, video calls, and server management using React and Socket.io",
+      img: "/project5.jpg",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+      link: "https://discord-production-6927.up.railway.app//",
+    }
+
   ];
   
   export const workExperience = [
