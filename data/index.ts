@@ -94,6 +94,16 @@ export const navItems = [
       link: "https://carepulse-two-delta.vercel.app/",
     },
 
+
+    {
+      id: 5,
+      title: "Real Time Protein Visualization",
+      des: "Built an interactive real time protein visualization system",
+      img: "/project6.jpg",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+      link: "https://real-time-protein-visualizer.vercel.app/",
+    },
+
   ];
   
   export const workExperience = [
