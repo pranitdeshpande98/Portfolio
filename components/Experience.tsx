@@ -1,47 +1,39 @@
-import React from 'react'
-import { workExperience } from "@/data"
-import { Button } from './ui/MovingBorders'
-const Experience = () => {
-  return (
-    <div className='py-20' id='experience'>
-            <h1 className="heading">
-        My
-        <span className="text-purple"> work experience</span>
-      </h1>
-      <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
-        {workExperience.map((card) => (
-          <Button
-            key={card.id}
-            duration={Math.floor(Math.random() * 10000) + 10000}
-            borderRadius="1.75rem"
-            style={{
-              background: "rgb(4,7,29)",
-              backgroundColor:
-                "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-              borderRadius: `calc(1.75rem* 0.96)`,
-            }}
-            className="flex-1 text-black dark:text-white border-neutral-200 dark:border-slate-800"
-          >
-            <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
-              <img
-                src={card.thumbnail}
-                alt={card.thumbnail}
-                className="lg:w-32 md:w-20 w-16"
-              />
-              <div className="lg:ms-5">
-                <h1 className="text-start text-xl md:text-2xl font-bold">
-                  {card.title}
-                </h1>
-                <p className="text-start text-white-100 mt-3 font-semibold">
-                  {card.desc}
-                </p>
-              </div>
-            </div>
-          </Button>
-        ))}
-        </div>
-    </div>
-  )
-}
+import { experience, skills } from "@/data";
 
-export default Experience
+export default function Experience() {
+  return (
+    <section id="experience" className="border-t border-ink py-16 md:py-20">
+      <h2 className="text-3xl font-semibold tracking-tight">Experience</h2>
+      <ol className="mt-10">
+        {experience.map((job) => (
+          <li
+            key={job.org}
+            className="grid gap-2 border-b border-wire/70 py-7 first:pt-0 last:border-b-0 md:grid-cols-[14rem_1fr] md:gap-10"
+          >
+            <p className="text-[15px] text-graphite">{job.dates}</p>
+            <div className="max-w-3xl">
+              <h3 className="text-xl font-semibold">
+                {job.role}, {job.org}
+              </h3>
+              <ul className="mt-3 space-y-2 text-[17px] leading-relaxed">
+                {job.points.map((pt) => (
+                  <li key={pt}>{pt}</li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <h3 className="mt-14 text-xl font-semibold">What I work with</h3>
+      <dl className="mt-6 grid gap-x-10 gap-y-5 md:grid-cols-2">
+        {skills.map((s) => (
+          <div key={s.group}>
+            <dt className="font-medium">{s.group}</dt>
+            <dd className="mt-1 text-[15px] leading-relaxed text-graphite">{s.items}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}

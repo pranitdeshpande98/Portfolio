@@ -2,88 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-@layer base {
-  * {
-    @apply border-border !scroll-smooth;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  button {
-    @apply active:outline-none;
-  }
+body {
+  @apply bg-paper text-ink antialiased;
+  font-feature-settings: "kern", "liga";
 }
 
-@layer utilities {
-  .heading {
-    @apply font-bold text-4xl md:text-5xl text-center;
-  }
+::selection {
+  background: #15233a;
+  color: #f1f3f2;
+}
 
-  .black-gradient {
-    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
-  }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0f7b5f;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hero schematic: one load sequence, signals travel the wires, then the gate approves */
+.wire {
+  fill: none;
+  stroke: #a3adb8;
+  stroke-width: 1.5;
+}
+
+.pulse {
+  fill: none;
+  stroke: #15233a;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 18 400;
+  stroke-dashoffset: 18;
+  opacity: 0;
+  animation: travel 1.1s ease-in forwards;
+}
+
+@keyframes travel {
+  0% { stroke-dashoffset: 18; opacity: 1; }
+  90% { opacity: 1; }
+  100% { stroke-dashoffset: -400; opacity: 0; }
+}
+
+.gate-shape {
+  fill: #fff7e0;
+  stroke: #c98a00;
+  stroke-width: 1.5;
+  animation: approve 0.5s ease-out 3.1s forwards;
+}
+
+@keyframes approve {
+  to { fill: #e3f2ec; stroke: #0f7b5f; }
+}
+
+.gate-wait {
+  animation: fade-out 0.3s ease-out 3.1s forwards;
+}
+
+.gate-ok,
+.action-done {
+  opacity: 0;
+  animation: fade-in 0.4s ease-out 3.3s forwards;
+}
+
+.action-shape {
+  fill: #ffffff;
+  stroke: #a3adb8;
+  stroke-width: 1.5;
+  animation: settle 0.4s ease-out 3.9s forwards;
+}
+
+@keyframes settle {
+  to { stroke: #0f7b5f; }
+}
+
+@keyframes fade-in { to { opacity: 1; } }
+@keyframes fade-out { to { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pulse { display: none; }
+  .gate-shape { animation: none; fill: #e3f2ec; stroke: #0f7b5f; }
+  .gate-wait { animation: none; opacity: 0; }
+  .gate-ok, .action-done { animation: none; opacity: 1; }
+  .action-shape { animation: none; stroke: #0f7b5f; }
 }

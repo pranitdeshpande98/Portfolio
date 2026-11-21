@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10132E"/><stop offset="1" stop-color="#04071D"/></linearGradient></defs>
-<rect width="640" height="360" rx="24" fill="url(#g)"/>
-<rect x="24" y="24" width="592" height="312" rx="18" fill="none" stroke="#CBACF9" stroke-opacity="0.35"/>
-<text x="56" y="120" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Drug Interaction Checker</text>
-<text x="56" y="162" font-family="Inter, Arial, sans-serif" font-size="22" fill="#CBACF9">Multi-agent pipeline</text>
-<text x="56" y="236" font-family="ui-monospace, Menlo, monospace" font-size="18" fill="#BEC1DD">6 agents  ·  2 MCP servers</text>
-<text x="56" y="272" font-family="ui-monospace, Menlo, monospace" font-size="18" fill="#BEC1DD">cited, judged, reviewed</text>
-</svg>

@@ -1,141 +1,119 @@
+export const profile = {
+  name: "Pranit Deshpande",
+  role: "Forward Deployed Engineer and Software Engineer",
+  location: "Dallas, Texas",
+  email: "pranitvijaydeshpande@gmail.com",
+  github: "https://github.com/pranitdeshpande98",
+  linkedin: "https://www.linkedin.com/in/pranitdeshpande-jan98",
+};
+
 export const navItems = [
-  { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
+  { name: "Work", link: "#work" },
   { name: "Experience", link: "#experience" },
+  { name: "Approach", link: "#approach" },
   { name: "Contact", link: "#contact" },
 ];
 
-export const contactEmail = "pranitvijaydeshpande@gmail.com";
-
-export const socialLinks = [
-  { name: "GitHub", link: "https://github.com/pranitdeshpande98" },
-  { name: "LinkedIn", link: "https://www.linkedin.com/in/pranitdeshpande-jan98" },
-];
-
-export const gridItems = [
-  {
-    id: 1,
-    title: "I work with the people who use what I build, from the first conversation to go-live",
-    description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
-    img: "/b1.svg",
-    spareImg: "",
-  },
-  {
-    id: 2,
-    title: "Based in Dallas, flexible across time zones",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 3,
-    title: "My tech stack",
-    description: "What I ship with",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-center",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 5,
-    title: "Building Fuse, a personal AI agent that asks before it acts",
-    description: "Currently building",
-    className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
-    img: "/b5.svg",
-    spareImg: "/grid.svg",
-  },
-  {
-    id: 6,
-    title: "Want to build something together?",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-    img: "",
-    spareImg: "",
-  },
-];
-
-export const techStack = {
-  left: ["Python", "TypeScript", "C++"],
-  right: ["LangGraph", "MCP", "SQL"],
+export type Project = {
+  name: string;
+  summary: string;
+  proof: string;
+  stack: string[];
+  link: string;
+  status?: string;
 };
 
-export const projects = [
+export const projects: Project[] = [
   {
-    id: 1,
-    title: "Fuse: Personal AI Agent",
-    des: "A LangGraph agent on Telegram that reads my Gmail and Calendar and drafts replies, with every write gated behind my approval.",
-    img: "/project-fuse.svg",
-    tags: ["Python", "LangGraph", "FastAPI", "Postgres", "Docker"],
+    name: "Fuse",
+    summary:
+      "A personal AI agent on Telegram that reads my Gmail and Calendar and drafts replies. It never sends, posts or changes anything until I approve it.",
+    proof: "Approval gate with idempotency keys, so an action can never run twice",
+    stack: ["Python", "LangGraph", "FastAPI", "PostgreSQL", "pgvector", "Docker"],
     link: "https://github.com/pranitdeshpande98/fuse",
-    linkLabel: "View on GitHub",
+    status: "Building now",
   },
   {
-    id: 2,
-    title: "Roost: AI HR Assistant",
-    des: "Multilingual HR agent for plant kiosks. 102 eval cases, 99% tool-call correctness, and guardrails that blocked every prompt injection on a held-out set.",
-    img: "/project-roost.svg",
-    tags: ["Python", "LangGraph", "pgvector", "FastAPI"],
+    name: "Roost",
+    summary:
+      "A multilingual HR assistant for plant-floor kiosks. It answers handbook questions in English, Spanish and Vietnamese with section citations, and routes sensitive issues to HR.",
+    proof: "102 eval cases, 99% tool-call correctness, every prompt injection blocked on a held-out set",
+    stack: ["Python", "LangGraph", "FastAPI", "PostgreSQL", "pgvector", "OpenTelemetry"],
     link: "https://github.com/pranitdeshpande98/roost-hr-assistant",
-    linkLabel: "View on GitHub",
   },
   {
-    id: 3,
-    title: "Drug Interaction Checker",
-    des: "6 agents across 2 custom MCP servers, with LLM-as-judge and human review. Rejects any claim it cannot trace to a source.",
-    img: "/project-drug.svg",
-    tags: ["Next.js", "TypeScript", "FastAPI", "MCP", "Claude"],
+    name: "Drug Interaction Checker",
+    summary:
+      "Six agents check a drug pair across two custom MCP servers. An LLM judge and a human review step reject any claim that can't be traced to a source.",
+    proof: "First verdict streams in about 3 seconds",
+    stack: ["Next.js", "TypeScript", "FastAPI", "LangGraph", "MCP", "Claude"],
     link: "https://github.com/pranitdeshpande98/drug-interaction-checker",
-    linkLabel: "View on GitHub",
   },
   {
-    id: 4,
-    title: "Concurrent Bank Account Manager",
-    des: "Multithreaded C++ TCP server handling 1,800+ transactions/sec at 100 clients with p95 latency near 1 ms.",
-    img: "/project-bank.svg",
-    tags: ["C++", "Linux", "POSIX threads", "TCP"],
+    name: "Concurrent Bank Account Manager",
+    summary:
+      "A multithreaded C++ TCP server that keeps balances correct under concurrent updates with per-account locks. Load-tested until it broke, then traced why.",
+    proof: "1,800+ transactions a second at 100 clients, p95 latency near 1 ms",
+    stack: ["C++", "Linux", "POSIX threads", "TCP"],
     link: "https://github.com/pranitdeshpande98/Centralized-Multi-User-Concurrent-Bank-Account-Manager",
-    linkLabel: "View on GitHub",
   },
 ];
 
-export const workExperience = [
+export const experience = [
   {
-    id: 1,
-    title: "Senior Software Engineer, Bachoco USA",
-    desc: "Shipped an LLM HR assistant to production for ~4,500 employees. Built T-SQL and SSIS pipelines and EDI integrations for 60 trading partners at 50,000 records/day.",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    role: "Senior Software Engineer",
+    org: "Bachoco USA",
+    dates: "2025 to now",
+    points: [
+      "Shipped an LLM HR assistant to production for all ~4,500 employees and the HR team.",
+      "Built T-SQL and SSIS pipelines and EDI integrations for 60 trading partners at 50,000 records a day.",
+      "Replaced a paid integration platform with in-house pipelines over SFTP, saving about $80K a year.",
+    ],
   },
   {
-    id: 2,
-    title: "Software Developer Intern, VITG Corp",
-    desc: "Built a full-stack monitoring platform (Django, PostgreSQL, React) with real-time alerting, cutting incident response 60%.",
-    className: "md:col-span-2",
-    thumbnail: "/exp2.svg",
+    role: "Software Developer Intern",
+    org: "VITG Corp",
+    dates: "2024 to 2025",
+    points: [
+      "Built a monitoring platform (Django, PostgreSQL, React) with real-time alerting, cutting incident response 60%.",
+    ],
   },
   {
-    id: 3,
-    title: "Graduate Assistant, UMBC",
-    desc: "Wrote an autograder that detects race conditions and memory leaks for 65 Operating Systems students, cutting grading time 40%.",
-    className: "md:col-span-2",
-    thumbnail: "/exp3.svg",
+    role: "Graduate Assistant",
+    org: "University of Maryland, Baltimore County",
+    dates: "2023 to 2024",
+    points: [
+      "Wrote an autograder that catches race conditions and memory leaks for 65 Operating Systems students.",
+    ],
   },
   {
-    id: 4,
-    title: "Software Engineer, Accenture",
-    desc: "Delivered integrations and React forms for the State of Michigan's tax platform, cutting post-release defects 35%.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    role: "Software Engineer",
+    org: "Accenture",
+    dates: "2019 to 2022",
+    points: [
+      "Delivered integrations and React forms for the State of Michigan's tax platform, cutting post-release defects 35%.",
+    ],
   },
+];
+
+export const approach = [
+  {
+    title: "Find the real problem",
+    text: "I start with the people doing the work: what breaks today, which systems hold the data, and what a win looks like.",
+  },
+  {
+    title: "Build against real data",
+    text: "Evals from day one, guardrails on what the model can touch, and a person approving anything it sends, posts or changes.",
+  },
+  {
+    title: "Stay through go-live",
+    text: "I ship, watch the traces, and keep iterating until the people using it rely on it every day.",
+  },
+];
+
+export const skills = [
+  { group: "Languages", items: "Python, TypeScript, C++, SQL (T-SQL), Java" },
+  { group: "AI and agents", items: "LangGraph, LangChain, MCP servers, evals, guardrails, RAG with pgvector, OpenAI and Claude APIs" },
+  { group: "Data and integration", items: "SQL Server, SSIS, dbt, Airflow, Databricks, SFTP, EDI, payroll and HRIS systems, ERP" },
+  { group: "Web and delivery", items: "FastAPI, Django, React, Next.js, Docker, GitHub Actions" },
 ];
