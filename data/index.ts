@@ -50,6 +50,23 @@ export const projects: Project[] = [
     link: "https://github.com/pranitdeshpande98/drug-interaction-checker",
   },
   {
+    name: "Cancer NGS Pipeline",
+    summary:
+      "An end-to-end genomics pipeline: simulated sequencing reads for the BRCA1 gene are aligned, variant-called and annotated against ClinVar, then served through an API to a React dashboard.",
+    proof: "4 Dockerized stages run end to end, with a pipeline smoke test in CI on every push",
+    stack: ["Python", "Docker", "GATK", "PostgreSQL", "Flask", "React", "GitHub Actions"],
+    link: "https://github.com/pranitdeshpande98/Cancer_NGS_Pipeline",
+  },
+  {
+    name: "Neuro Pipeline",
+    summary:
+      "An EEG processing platform designed around one Kubernetes Job per subject, with a reconciler that keeps run status correct even when a pod dies without reporting back.",
+    proof: "Built so far: the data model, idempotent ingestion into object storage, and a stage framework that rejects a misordered pipeline before it runs",
+    stack: ["Python", "Django", "PostgreSQL", "MinIO", "Docker", "Kubernetes"],
+    link: "https://github.com/pranitdeshpande98/Neuro-Pipeline",
+    status: "In progress",
+  },
+  {
     name: "Concurrent Bank Account Manager",
     summary:
       "A multithreaded C++ TCP server that keeps balances correct under concurrent updates with per-account locks. Load-tested until it broke, then traced why.",
