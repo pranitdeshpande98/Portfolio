@@ -11,7 +11,7 @@ const RecentProjects = () => {
         A small selection of <span className="text-purple">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
-        {projects.map(({ id, title, des, img, iconLists, link }) => (
+        {projects.map(({ id, title, des, img, tags, link, linkLabel }) => (
           <div
             key={id}
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
@@ -48,23 +48,20 @@ const RecentProjects = () => {
                 </p>
 
                 <div className="flex items-center justify-between mt-7 mb-3">
-                  <div className="flex items-center">
-                    {iconLists.map((icon, index) => (
-                      <div
-                        key={index}
-                        className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                        style={{
-                          transform: `translateX(-${5 * index + 2}px)`,
-                        }}
+                  <div className="flex flex-wrap gap-2 max-w-[70%]">
+                    {tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border border-white/[.2] rounded-full bg-black px-3 py-1 text-xs lg:text-sm text-white-100"
                       >
-                        <img src={icon} alt="icon" className="p-2" />
-                      </div>
+                        {tag}
+                      </span>
                     ))}
                   </div>
 
                   <div className="flex justify-center items-center">
                     <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                      Check Live Site
+                      {linkLabel}
                     </p>
                     <FaLocationArrow className="ms-3" color="#CBACF9" />
                   </div>

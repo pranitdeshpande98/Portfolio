@@ -6,8 +6,8 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pranit Deshpande's Portfolio",
-  description: "Modern React Portfolio",
+  title: "Pranit Deshpande | Forward Deployed Engineer",
+  description: "Forward Deployed and Software Engineer shipping LLM agents into production, with enterprise integration depth in ERP, payroll, EDI and data pipelines.",
 };
 
 export default function RootLayout({

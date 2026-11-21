@@ -11,19 +11,19 @@ const Approach = () => {
         My <span className="text-purple">approach</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
-        <Card title="Planning and Strategy" icon={<AceternityIcon  order="Phase 1"/>}
-        description="We'll collaborate to map out your website's goals, target audience, 
-          and key functionalities. We'll discuss things like site structure, 
-          navigation, and content requirements." >
+        <Card title="Discovery and Scoping" icon={<AceternityIcon order="Phase 1"/>}
+        description="I start with the people doing the work: what breaks today, which
+          systems hold the data, and what a win looks like. Then I scope the smallest
+          version worth shipping." >
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-emerald-900"
           />
         </Card>
-        <Card title="Development & Progress Update" icon={<AceternityIcon order="Phase 2"/>}
-         description="Once we agree on the plan, I cue my lofi playlist and dive into
-         coding. From initial sketches to polished code, I keep you updated
-         every step of the way.">
+        <Card title="Build with Evals and Guardrails" icon={<AceternityIcon order="Phase 2"/>}
+         description="I build against real data, with evals from day one, guardrails
+         on what the model can touch, and a human approving anything it sends,
+         posts or changes." >
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-black"
@@ -35,10 +35,9 @@ const Approach = () => {
           />
          
         </Card>
-        <Card title="Development & Launch" icon={<AceternityIcon order="Phase 3"/>}
-         description="This is where the magic happens! Based on the approved design, 
-         I'll translate everything into functional code, building your website
-         from the ground up.">
+        <Card title="Rollout and Adoption" icon={<AceternityIcon order="Phase 3"/>}
+         description="I ship to production, stay through go-live, watch the traces,
+         and keep iterating until the people using it rely on it every day." >
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-sky-600"
