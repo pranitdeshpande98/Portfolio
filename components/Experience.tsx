@@ -3,7 +3,7 @@ import { experience, skills } from "@/data";
 export default function Experience() {
   return (
     <section id="experience" className="border-t border-ink py-16 md:py-20">
-      <h2 className="text-3xl font-semibold tracking-tight">Experience</h2>
+      <h2 className="font-display text-4xl font-bold tracking-[-0.02em] md:text-5xl">Experience</h2>
       <ol className="mt-10">
         {experience.map((job) => (
           <li

@@ -4,7 +4,7 @@ export default function Nav() {
   return (
     <header className="border-b border-wire/60">
       <nav className="mx-auto flex max-w-page items-center justify-between px-6 py-5 md:px-10" aria-label="Main">
-        <a href="#top" className="font-semibold tracking-tight">
+        <a href="#top" className="font-display text-lg font-bold tracking-tight">
           {profile.name}
         </a>
         <ul className="hidden gap-8 text-[15px] text-graphite sm:flex">

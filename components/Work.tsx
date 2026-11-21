@@ -3,7 +3,7 @@ import { projects } from "@/data";
 export default function Work() {
   return (
     <section id="work" className="border-t border-ink py-16 md:py-20">
-      <h2 className="text-3xl font-semibold tracking-tight">Selected work</h2>
+      <h2 className="font-display text-4xl font-bold tracking-[-0.02em] md:text-5xl">Selected work</h2>
       <ul className="mt-10">
         {projects.map((p) => (
           <li
@@ -11,7 +11,7 @@ export default function Work() {
             className="grid gap-4 border-b border-wire/70 py-8 first:pt-0 last:border-b-0 md:grid-cols-[14rem_1fr] md:gap-10"
           >
             <div>
-              <h3 className="text-xl font-semibold">{p.name}</h3>
+              <h3 className="font-display text-2xl font-bold tracking-[-0.01em]">{p.name}</h3>
               {p.status && (
                 <p className="mt-2 inline-block rounded-[3px] bg-[#FFF2CC] px-2 py-0.5 text-sm text-[#7A5400]">
                   {p.status}

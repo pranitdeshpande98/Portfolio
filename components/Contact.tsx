@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <footer id="contact" className="mt-8 bg-ink text-paper">
       <div className="mx-auto max-w-page px-6 py-16 md:px-10 md:py-20">
-        <h2 className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+        <h2 className="max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] md:text-6xl">
           Hiring a forward deployed or software engineer? I&apos;d like to hear about it.
         </h2>
         <a

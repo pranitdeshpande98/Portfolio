@@ -14,7 +14,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-plex)", "system-ui", "sans-serif"],
-        cond: ["var(--font-plex-cond)", "var(--font-plex)", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-plex)", "sans-serif"],
       },
       maxWidth: {
         page: "72rem",

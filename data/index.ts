@@ -62,7 +62,7 @@ export const projects: Project[] = [
 export const experience = [
   {
     role: "Senior Software Engineer",
-    org: "Bachoco USA",
+    org: "Bachoco",
     dates: "2025 to now",
     points: [
       "Shipped an LLM HR assistant to production for all ~4,500 employees and the HR team.",
