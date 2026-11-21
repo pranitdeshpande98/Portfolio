@@ -1,18 +1,9 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
+import { Hanken_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
 
-const plex = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-plex",
-});
-
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["500", "700", "800"],
-  variable: "--font-display",
-});
+const text = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-text" });
+const display = Syne({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
   title: "Pranit Deshpande | Forward Deployed Engineer",
@@ -22,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${plex.variable} ${display.variable}`}>
+    <html lang="en" className={`${text.variable} ${display.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );

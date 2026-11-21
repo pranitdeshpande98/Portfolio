@@ -2,27 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  @apply bg-paper text-ink antialiased;
-  font-feature-settings: "kern", "liga";
+  @apply bg-white text-ink antialiased;
 }
 
-::selection {
-  background: #15233a;
-  color: #f1f3f2;
-}
+::selection { background: #ffd84d; color: #0e1530; }
 
 a:focus-visible,
-button:focus-visible {
-  outline: 2px solid #0f7b5f;
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #ffd84d;
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
+}
+
+.mark {
+  background: linear-gradient(transparent 55%, #ffd84d 55%);
+  padding: 0 2px;
+}
+
+.bubble-in {
+  animation: bubble-in 0.35s ease-out both;
+}
+
+@keyframes bubble-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .bubble-in { animation: none; }
 }
