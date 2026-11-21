@@ -66,14 +66,6 @@ export const projects: Project[] = [
     link: "https://github.com/pranitdeshpande98/Neuro-Pipeline",
     status: "In progress",
   },
-  {
-    name: "Concurrent Bank Account Manager",
-    summary:
-      "A multithreaded C++ TCP server that keeps balances correct under concurrent updates with per-account locks. Load-tested until it broke, then traced why.",
-    proof: "1,800+ transactions a second at 100 clients, p95 latency near 1 ms",
-    stack: ["C++", "Linux", "POSIX threads", "TCP"],
-    link: "https://github.com/pranitdeshpande98/Centralized-Multi-User-Concurrent-Bank-Account-Manager",
-  },
 ];
 
 export const experience = [
