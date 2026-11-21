@@ -8,19 +8,19 @@ body {
   @apply bg-white text-ink antialiased;
 }
 
-::selection { background: #ffd84d; color: #0e1530; }
+::selection { background: #7fd8be; color: #10181b; }
 
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #ffd84d;
+  outline: 3px solid #f2b33d;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-.mark {
-  background: linear-gradient(transparent 55%, #ffd84d 55%);
-  padding: 0 2px;
+h1, h2, h3 {
+  line-height: 1.15;
+  text-rendering: optimizeLegibility;
 }
 
 .bubble-in {
@@ -36,3 +36,5 @@ summary:focus-visible {
   html { scroll-behavior: auto; }
   .bubble-in { animation: none; }
 }
+
+a { text-decoration-skip-ink: auto; }

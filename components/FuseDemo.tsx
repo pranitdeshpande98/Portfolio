@@ -51,7 +51,7 @@ export default function FuseDemo() {
             <div className="bubble-in max-w-[90%] rounded-2xl rounded-bl-md bg-cobalt-soft px-4 py-3">
               {state === "approved" ? (
                 <p>
-                  <span className="mark font-semibold">Saved to your Gmail drafts.</span> Logged once,
+                  <span className="font-semibold text-cobalt">Saved to your Gmail drafts.</span> Logged once,
                   so it can&apos;t be saved twice.
                 </p>
               ) : (

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Syne } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const text = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-text" });
-const display = Syne({ subsets: ["latin"], variable: "--font-display" });
+const text = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-text", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Pranit Deshpande | Forward Deployed Engineer",
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${text.variable} ${display.variable}`}>
+    <html lang="en" className={`${text.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );

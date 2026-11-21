@@ -7,7 +7,7 @@ export default function Contact() {
         <p className="text-lg text-white/80">Hiring a forward deployed or software engineer?</p>
         <a
           href={`mailto:${profile.email}`}
-          className="mt-4 block break-all font-display text-[1.65rem] font-bold leading-tight tracking-[-0.02em] underline decoration-white/30 decoration-2 underline-offset-[10px] hover:decoration-marker sm:text-4xl md:text-6xl"
+          className="mt-5 inline-block break-all rounded-2xl bg-white/10 px-5 py-3 font-display text-[1.5rem] font-bold leading-[1.3] transition-colors hover:bg-mint hover:text-ink sm:text-3xl md:text-[2.75rem]"
         >
           {profile.email}
         </a>

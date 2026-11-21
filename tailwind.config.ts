@@ -5,15 +5,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cobalt: { DEFAULT: "#1E3BD6", deep: "#162CA8", soft: "#E8ECFF" },
-        ink: "#0E1530",
-        slate: "#5A6178",
-        line: "#DCDFEA",
-        marker: "#FFD84D",
+        cobalt: { DEFAULT: "#0E3B43", deep: "#0A2A30", soft: "#E3F1EC" },
+        ink: "#10181B",
+        slate: "#55606A",
+        line: "#DDE3E1",
+        marker: "#F2B33D",
+        mint: "#7FD8BE",
       },
       fontFamily: {
         sans: ["var(--font-text)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "var(--font-text)", "sans-serif"],
+        display: ["var(--font-text)", "system-ui", "sans-serif"],
       },
       maxWidth: { page: "76rem" },
     },

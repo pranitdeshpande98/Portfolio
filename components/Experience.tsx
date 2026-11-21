@@ -4,7 +4,7 @@ export default function Experience() {
   return (
     <section id="experience" className="grid gap-10 border-t border-line py-20 md:py-28 lg:grid-cols-[23rem_1fr] lg:gap-16">
       <div className="lg:sticky lg:top-10 lg:self-start">
-        <h2 className="font-display text-4xl font-bold tracking-[-0.03em] md:text-6xl">Experience</h2>
+        <h2 className="font-display text-4xl font-bold tracking-[-0.01em] md:text-6xl">Experience</h2>
         <p className="mt-5 max-w-xs text-slate">
           Five years of shipping software into production, from state government to manufacturing.
         </p>
