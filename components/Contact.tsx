@@ -2,21 +2,23 @@ import { profile } from "@/data";
 
 export default function Contact() {
   return (
-    <footer id="contact" className="mt-6 rounded-t-[2.5rem] bg-cobalt text-white md:rounded-t-[4rem]">
-      <div className="mx-auto max-w-page px-6 pb-10 pt-20 md:px-10 md:pt-28">
-        <p className="text-lg text-white/80">Hiring a forward deployed or software engineer?</p>
-        <a
-          href={`mailto:${profile.email}`}
-          className="mt-5 inline-block break-all rounded-2xl bg-white/10 px-5 py-3 font-display text-[1.5rem] font-bold leading-[1.3] transition-colors hover:bg-mint hover:text-ink sm:text-3xl md:text-[2.75rem]"
-        >
-          {profile.email}
-        </a>
-        <div className="mt-20 flex flex-col justify-between gap-4 border-t border-white/25 pt-6 text-[15px] text-white/75 sm:flex-row">
-          <p>© 2026 {profile.name}</p>
-          <div className="flex gap-6">
-            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="hover:text-white">GitHub</a>
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
-          </div>
+    <footer id="contact" className="bg-ink text-white">
+      <div className="mx-auto max-w-page px-6 py-16 md:px-10 md:py-24">
+        <h2 className="wider max-w-4xl text-3xl font-extrabold leading-[1.15] md:text-[3.4rem]">Have a floor that needs running?</h2>
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/75">
+          ERP integrations, data pipelines, payroll systems, or an AI assistant people actually use. I&apos;m in{" "}
+          {profile.location} and happy to talk.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${profile.email}`} className="rounded-full bg-white px-6 py-3 font-semibold text-ink hover:bg-stamp-soft">
+            {profile.email}
+          </a>
+          <a href={profile.linkedin} className="rounded-full border border-white/40 px-6 py-3 font-semibold hover:border-white">
+            LinkedIn
+          </a>
+          <a href={profile.github} className="rounded-full border border-white/40 px-6 py-3 font-semibold hover:border-white">
+            GitHub
+          </a>
         </div>
       </div>
     </footer>

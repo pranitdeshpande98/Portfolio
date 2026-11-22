@@ -1,17 +1,19 @@
-import Hero from "@/components/Hero";
-import Work from "@/components/Work";
+import Floor from "@/components/Floor";
+import DockDemo from "@/components/DockDemo";
+import Incidents from "@/components/Incidents";
+import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
-import Approach from "@/components/Approach";
 import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Floor />
       <main className="mx-auto max-w-page px-6 md:px-10">
-        <Work />
+        <DockDemo />
+        <Incidents />
+        <Projects />
         <Experience />
-        <Approach />
       </main>
       <Contact />
     </>
