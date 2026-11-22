@@ -1,4 +1,5 @@
 import AgentArch from "./AgentArch";
+import AgentConsole from "./AgentConsole";
 
 /* Numbers from the Roost eval suite (github.com/pranitdeshpande98/roost-hr-assistant). */
 const METRICS = [
@@ -33,7 +34,7 @@ export default function Evals() {
         <div className="rounded-2xl border border-line bg-panel p-6 md:p-8">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <h3 className="wide text-xl font-bold">Roost eval suite, last run</h3>
-            <p className="text-sm text-mute">102 cases, 26 scenarios</p>
+            <p className="text-sm text-mute">102 cases, 26 scenarios, ~1 s median latency</p>
           </div>
           <ul className="mt-6 space-y-4">
             {METRICS.map((m) => (
@@ -50,17 +51,11 @@ export default function Evals() {
           </ul>
         </div>
 
-        <div className="grid gap-5">
-          {[
-            { n: "102", l: "eval cases in CI, across 26 scenarios" },
-            { n: "~1 s", l: "median model latency" },
-            { n: "90%+", l: "test coverage gate on every push" },
-          ].map((x) => (
-            <div key={x.l} className="rounded-2xl border border-line bg-panel p-6">
-              <p className="wider text-4xl font-extrabold text-volt">{x.n}</p>
-              <p className="mt-1 text-mute">{x.l}</p>
-            </div>
-          ))}
+        <div>
+          <AgentConsole />
+          <p className="mt-3 text-sm text-mute">
+            A replay of the agent&apos;s three paths: answer with a citation, route to HR, or refuse. The employee and values are invented.
+          </p>
         </div>
       </div>
     </section>

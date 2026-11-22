@@ -5,7 +5,6 @@ import Systems from "@/components/Systems";
 import DockDemo from "@/components/DockDemo";
 import Projects from "@/components/Projects";
 import Incidents from "@/components/Incidents";
-import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
         <Projects />
         <DockDemo />
         <Incidents />
-        <Experience />
       </main>
       <Contact />
     </>

@@ -8,13 +8,13 @@ export const profile = {
 };
 
 export const navItems = [
-  { name: "Agent", link: "#top" },
+  { name: "Trace", link: "#top" },
   { name: "Evals", link: "#evals" },
   { name: "Ask", link: "#ask" },
   { name: "Systems", link: "#systems" },
   { name: "Projects", link: "#projects" },
   { name: "Playground", link: "#playground" },
-  { name: "Experience", link: "#experience" },
+  { name: "Incidents", link: "#incidents" },
 ];
 
 /* Production systems I own, framed as constraint, decision, outcome. */

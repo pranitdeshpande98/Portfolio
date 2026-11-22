@@ -16,7 +16,7 @@ h1, h2, h3 { line-height: 1.1; text-rendering: optimizeLegibility; }
     linear-gradient(rgba(140,124,255,0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(140,124,255,0.07) 1px, transparent 1px);
   background-size: 44px 44px;
-  mask-image: radial-gradient(ellipse 80% 70% at 60% 30%, #000 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 70%);
 }
 .glow { box-shadow: 0 0 0 1px rgba(140,124,255,0.35), 0 30px 80px -30px rgba(140,124,255,0.45); }
 
