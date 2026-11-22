@@ -5,9 +5,9 @@ export default function Projects() {
     <section id="projects" aria-labelledby="projects-title" className="border-t border-line py-20 md:py-28">
       <div className="grid gap-6 md:grid-cols-2 md:items-end">
         <h2 id="projects-title" className="wider text-4xl font-extrabold leading-[1.12] md:text-[3.2rem] md:leading-[1.12]">
-          Things I build on my own
+          AI projects I build on my own
         </h2>
-        <p className="text-mute md:text-right">Projects I build on my own time, each with the result that proves it works.</p>
+        <p className="text-mute md:text-right">Agents, evals and pipelines I build on my own time, each with the result that proves it works.</p>
       </div>
 
       <div className="mt-12 grid gap-5 md:grid-cols-2">

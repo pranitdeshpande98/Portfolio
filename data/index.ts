@@ -1,6 +1,6 @@
 export const profile = {
   name: "Pranit Deshpande",
-  role: "Software and forward deployed engineer",
+  role: "AI engineer, software and forward deployed",
   location: "Dallas, Texas",
   email: "pranitvijaydeshpande@gmail.com",
   github: "https://github.com/pranitdeshpande98",
@@ -9,10 +9,11 @@ export const profile = {
 
 export const navItems = [
   { name: "Agent", link: "#top" },
+  { name: "Evals", link: "#evals" },
+  { name: "Ask", link: "#ask" },
   { name: "Systems", link: "#systems" },
-  { name: "Playground", link: "#playground" },
-  { name: "Incidents", link: "#incidents" },
   { name: "Projects", link: "#projects" },
+  { name: "Playground", link: "#playground" },
   { name: "Experience", link: "#experience" },
 ];
 

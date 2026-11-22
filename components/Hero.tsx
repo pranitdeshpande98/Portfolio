@@ -3,7 +3,7 @@ import AgentConsole from "./AgentConsole";
 
 const PROOF = [
   { n: "~4,500", l: "employees on my AI assistant" },
-  { n: "60", l: "partner integrations rebuilt" },
+  { n: "102", l: "eval cases gate every agent change" },
   { n: "1.5M+", l: "records a month through my pipelines" },
   { n: "$80K", l: "a year saved by replacing a vendor tool" },
 ];
@@ -39,19 +39,18 @@ export default function Hero() {
             {profile.role}, {profile.location}
           </p>
           <h1 className="wider mt-6 text-[2.7rem] font-extrabold leading-[1.08] md:text-[4.3rem] md:leading-[1.06]">
-            I ship AI agents into <span className="text-volt">real enterprise systems.</span>
+            I build AI agents that <span className="text-volt">hold up in production.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">
-            Not demos. I&apos;m the sole US engineer at a 4,500-employee food producer, where my AI assistant answers
-            every employee and my integrations move orders, payroll and finance data every night. I work where the
-            model meets the messy systems.
+            Not demos. My LLM assistant answers questions for all 4,500 employees at a food producer, wired into real HR,
+            ERP and finance systems, with evals, guardrails and a human in the loop where it matters.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#systems" className="rounded-full bg-volt px-6 py-3 font-semibold text-night transition-colors hover:bg-snow">
-              See systems in production
+            <a href="#evals" className="rounded-full bg-volt px-6 py-3 font-semibold text-night transition-colors hover:bg-snow">
+              See how I build agents
             </a>
-            <a href="#playground" className="rounded-full border border-line bg-panel/60 px-6 py-3 font-semibold transition-colors hover:border-volt">
-              Open the playground
+            <a href="#ask" className="rounded-full border border-line bg-panel/60 px-6 py-3 font-semibold transition-colors hover:border-volt">
+              Ask about my work
             </a>
           </div>
         </div>

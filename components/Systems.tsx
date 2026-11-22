@@ -2,7 +2,7 @@ import { systems } from "@/data";
 
 export default function Systems() {
   return (
-    <section id="systems" aria-labelledby="systems-title" className="py-20 md:py-28">
+    <section id="systems" aria-labelledby="systems-title" className="border-t border-line py-20 md:py-28">
       <div className="grid gap-6 md:grid-cols-2 md:items-end">
         <h2 id="systems-title" className="wider text-4xl font-extrabold leading-[1.12] md:text-[3.2rem] md:leading-[1.12]">
           Systems in production

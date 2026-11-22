@@ -43,7 +43,7 @@ const SCENARIOS: Scenario[] = [
     tone: "bad",
     verdict: "Blocked by guardrail",
     steps: [
-      { kind: "guard", label: "injection classifier", detail: "instruction override detected", tone: "bad" },
+      { kind: "guard", label: "injection guard", detail: "instruction override ignored", tone: "bad" },
       { kind: "tool", label: "hr.get_salary(scope=all)", detail: "denied: caller may read only their own record", tone: "bad" },
       { kind: "answer", label: "reply", detail: "I can't share other people's pay. I can show your own pay stub if you'd like." },
     ],
