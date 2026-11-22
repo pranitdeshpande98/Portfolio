@@ -1,6 +1,6 @@
 export const profile = {
   name: "Pranit Deshpande",
-  role: "Software and data engineer",
+  role: "Software and forward deployed engineer",
   location: "Dallas, Texas",
   email: "pranitvijaydeshpande@gmail.com",
   github: "https://github.com/pranitdeshpande98",
@@ -8,96 +8,66 @@ export const profile = {
 };
 
 export const navItems = [
-  { name: "The floor", link: "#floor" },
-  { name: "Try the dock", link: "#dock" },
+  { name: "Agent", link: "#top" },
+  { name: "Systems", link: "#systems" },
+  { name: "Playground", link: "#playground" },
   { name: "Incidents", link: "#incidents" },
   { name: "Projects", link: "#projects" },
   { name: "Experience", link: "#experience" },
-  { name: "Contact", link: "#contact" },
 ];
 
-/* Stations on the plant floor, in the order data moves through the business. */
-export type Station = {
-  id: string;
+/* Production systems I own, framed as constraint, decision, outcome. */
+export type System = {
   name: string;
-  short: string;
-  figure: string;
-  figureLabel: string;
-  what: string;
-  built: string[];
+  tag: string;
+  metric: string;
+  metricLabel: string;
+  constraint: string;
+  decision: string;
+  outcome: string;
   stack: string[];
 };
 
-export const stations: Station[] = [
+export const systems: System[] = [
   {
-    id: "dock",
-    name: "Receiving dock",
-    short: "EDI",
-    figure: "60",
-    figureLabel: "trading partners moved into native SAP",
-    what: "Customer orders, invoices and ship notices arrive as EDI documents. I moved every partner off a custom SQL Server database and into SAP.",
-    built: [
-      "Migrated all 60 EDI trading partners into SAP through IDocs, SAP PI and ABAP proxies, about 50,000 records a day.",
-      "Errors fell from about 100 a month to under 10.",
-      "Onboarded 7 new EDI customers in Cleo Clarify Studio in 2025.",
-    ],
-    stack: ["IDocs", "SAP PI", "ABAP proxies", "ANSI X12", "Cleo"],
+    name: "AI HR assistant",
+    tag: "LLM agent in production",
+    metric: "~4,500",
+    metricLabel: "employees use it",
+    constraint: "A food producer with plant-floor staff and a small HR team answering the same handbook, leave and payday questions every day.",
+    decision: "Retrieval over the official handbook on open-source models (gpt-oss-120b with a Qwen fallback), so answers cite policy instead of guessing.",
+    outcome: "In production for every employee and the HR team since 09/2026.",
+    stack: ["Python", "LLMs", "RAG", "pgvector"],
   },
   {
-    id: "pricing",
-    name: "Pricing desk",
-    short: "PO",
-    figure: "100–200",
-    figureLabel: "purchase orders checked every day",
-    what: "Our system prices change often, so incoming purchase orders rarely match. Before, that surfaced weeks later as a credit memo.",
-    built: [
-      "A SQL alert compares every incoming PO price with the system-determined price and emails sales the same day.",
-      "Mismatches show up on roughly 90% of orders, so sales can call the buyer before invoicing instead of issuing a credit memo afterwards.",
-    ],
-    stack: ["T-SQL", "SQL Server Agent", "Database Mail"],
+    name: "Partner integration platform",
+    tag: "Enterprise integration",
+    metric: "50,000",
+    metricLabel: "records a day",
+    constraint: "60 trading partners ran through a custom database outside the ERP. Every format change broke something.",
+    decision: "Rebuilt every partner on standard interfaces with validation at ingestion, then onboarded 7 new customers on the new path.",
+    outcome: "Errors fell from about 100 a month to under 10.",
+    stack: ["EDI X12", "REST/SOAP", "Message mapping", "SQL"],
   },
   {
-    id: "warehouse",
-    name: "Warehouse",
-    short: "dbt",
-    figure: "400K+",
-    figureLabel: "rows in every weekly run",
-    what: "Accounts Receivable and sales need one version of the truth about orders, deliveries and invoices.",
-    built: [
-      "15+ dbt models on Databricks feed Accounts Receivable reporting, 400K+ rows each weekly run.",
-      "A Friday credit report follows each week's orders from delivery to invoice and flags over- and under-deliveries by storage location and destination.",
-      "15+ T-SQL validation procedures run as SQL Server Agent jobs and alert the owner of each feed when a step fails.",
-    ],
-    stack: ["dbt", "Databricks", "SQL Server", "T-SQL", "Power BI"],
+    name: "Finance data pipelines",
+    tag: "Data engineering",
+    metric: "400K+",
+    metricLabel: "rows every weekly run",
+    constraint: "Accounts Receivable and sales needed one trusted view of orders, deliveries, invoices and prices.",
+    decision: "15+ dbt models on Databricks, a weekly credit report, and a SQL price check on 100–200 purchase orders a day.",
+    outcome: "Price mismatches reach sales the same day, before a credit memo is needed.",
+    stack: ["dbt", "Databricks", "SQL Server", "Power BI"],
   },
   {
-    id: "payroll",
-    name: "Payroll office",
-    short: "HCM",
-    figure: "$80K",
-    figureLabel: "a year saved by retiring Boomi",
-    what: "US payroll, benefits and Year-End run on SAP HCM and Employee Central Payroll, and I own them end to end.",
-    built: [
-      "Replaced Boomi with in-house SSIS and T-SQL interfaces that sync all 4,000 employee records 5 nights a week.",
-      "Configure wage types, schemas, infotypes, tax rates, benefits plans and open enrollment across 7 payroll areas.",
-      "Close Year-End for 8,000 W-2s and ACA filings, and administer ECP access for about 20 payroll, benefits and HR users.",
-      "An ABAP benefits report now lands a 400K+-row file on HR's shared drive over SFTP, halving work they used to do by hand in Excel.",
-    ],
-    stack: ["SAP HCM", "SuccessFactors", "ECP", "SSIS", "SFTP", "ABAP"],
-  },
-  {
-    id: "kiosk",
-    name: "HR kiosk",
-    short: "AI",
-    figure: "~4,500",
-    figureLabel: "employees using the HR assistant",
-    what: "Plant employees had handbook, leave and payday questions and one small HR team to ask.",
-    built: [
-      "Shipped an LLM HR assistant to production for every employee and the HR team, answering from the official handbook.",
-      "Built on open-source models with retrieval over the handbook, the same design as my Roost project.",
-      "Prototyping an LLM that reconciles GL data across 5,000+ cost centers for the finance close.",
-    ],
-    stack: ["Python", "gpt-oss-120b", "Qwen", "pgvector", "LangChain"],
+    name: "Payroll integrations",
+    tag: "Cost and reliability",
+    metric: "$80K",
+    metricLabel: "saved every year",
+    constraint: "A licensed integration platform (Boomi) moved employee data to payroll on a schedule.",
+    decision: "Rewrote the 4 interfaces in-house in SSIS and T-SQL, running 5 nights a week, with SFTP file delivery.",
+    outcome: "All 4,000 employee records sync nightly with no license, about 1M records a year.",
+    stack: ["SSIS", "T-SQL", "SFTP", "Scheduling"],
   },
 ];
 
@@ -113,8 +83,8 @@ export type Incident = {
 export const incidents: Incident[] = [
   {
     title: "EDI errors were a monthly ritual",
-    broke: "Sixty partners flowed through a custom SQL Server database that sat outside SAP. Every format change from a customer broke something, and fixes were manual.",
-    fix: "Moved every partner onto standard SAP interfaces (IDocs, SAP PI, ABAP proxies) so mapping and validation live in one place.",
+    broke: "Sixty partners flowed through a custom SQL Server database that sat outside the ERP. Every format change from a customer broke something, and fixes were manual.",
+    fix: "Moved every partner onto standard ERP interfaces so mapping and validation live in one place.",
     before: "~100",
     after: "<10",
     unit: "EDI errors a month",
@@ -191,12 +161,21 @@ export const projects: Project[] = [
   },
 ];
 
+export const extraProject: Project = {
+  name: "Knee Osteoarthritis Grading",
+  summary:
+    "A fine-tuned Xception CNN grades knee X-rays into 5 severity levels and explains itself with Grad-CAM heatmaps. A Django app turns each result into a PDF report written by GPT-4o.",
+  proof: "Trained on 8,260 X-rays, correcting a 13:1 class imbalance with class weights",
+  stack: ["Python", "TensorFlow", "Django", "PostgreSQL", "GPT-4o"],
+  link: "https://github.com/pranitdeshpande98",
+};
+
 export const experience = [
   {
-    role: "Senior SAP ABAP Developer",
+    role: "Senior Software Engineer",
     org: "Bachoco",
     dates: "2025 to now",
-    note: "The only US SAP developer at a 4,500-employee food producer: EDI, payroll, data and the company's first AI assistant.",
+    note: "Sole US engineer at a 4,500-employee food producer. I own the company's first AI assistant, partner integrations, finance data pipelines and payroll systems.",
   },
   {
     role: "Software Developer Intern",
@@ -211,9 +190,9 @@ export const experience = [
     note: "Wrote an autograder that catches race conditions and memory leaks for 65 Operating Systems students.",
   },
   {
-    role: "SAP ABAP Developer",
+    role: "Software Engineer",
     org: "Accenture",
     dates: "2019 to 2022",
-    note: "State of Michigan tax platform: 6 agency interfaces, a call-center screen for about 6,000 calls a tax season, and 35% fewer post-release defects.",
+    note: "Customer-facing delivery for the State of Michigan tax platform: 6 agency integrations, a call-center tool for about 6,000 calls a tax season, and 35% fewer post-release defects.",
   },
 ];

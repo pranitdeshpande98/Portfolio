@@ -3,29 +3,37 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
-body { @apply bg-frost text-ink antialiased; }
-::selection { background: #ece7f7; color: #16212b; }
+body { @apply bg-night text-snow antialiased; }
+::selection { background: #8c7cff; color: #0b1020; }
 
-/* Expanded width for display type: the plant-sign voice. */
-.wide { font-stretch: 118%; letter-spacing: -0.01em; }
-.wider { font-stretch: 125%; letter-spacing: -0.015em; }
+.wide { font-stretch: 116%; letter-spacing: -0.01em; }
+.wider { font-stretch: 125%; letter-spacing: -0.02em; }
+h1, h2, h3 { line-height: 1.1; text-rendering: optimizeLegibility; }
 
-h1, h2, h3 { line-height: 1.12; text-rendering: optimizeLegibility; }
+/* blueprint grid behind the hero */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(140,124,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140,124,255,0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 30%, #000 40%, transparent 100%);
+}
+.glow { box-shadow: 0 0 0 1px rgba(140,124,255,0.35), 0 30px 80px -30px rgba(140,124,255,0.45); }
 
-a:focus-visible, button:focus-visible, summary:focus-visible, textarea:focus-visible, [role="tab"]:focus-visible {
-  outline: 3px solid #5b3fa6;
+a:focus-visible, button:focus-visible, textarea:focus-visible, [role="tab"]:focus-visible {
+  outline: 3px solid #3dd6f5;
   outline-offset: 3px;
   border-radius: 6px;
 }
 
-/* Conveyor: the one moving thing on the page. */
-@keyframes belt { to { stroke-dashoffset: -28; } }
-.belt { stroke-dasharray: 10 18; animation: belt 1.4s linear infinite; }
-
-@keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-.rise { animation: rise 0.3s ease-out both; }
+@keyframes step-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.step-in { animation: step-in 0.35s ease-out both; }
+@keyframes caret { 50% { opacity: 0; } }
+.caret { animation: caret 1s steps(1) infinite; }
+@keyframes flow { to { stroke-dashoffset: -24; } }
+.flow { stroke-dasharray: 6 18; animation: flow 1.2s linear infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .belt, .rise { animation: none; }
+  .step-in, .caret, .flow { animation: none; }
 }

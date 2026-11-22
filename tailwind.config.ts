@@ -1,24 +1,26 @@
 import type { Config } from "tailwindcss";
 
-/* Cold-room palette: frost surfaces, steel ink, inspection-stamp violet as the one accent,
-   and status colors used only for status. */
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./data/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        frost: "#EEF3F6",
-        ink: "#16212B",
-        steel: "#566472",
-        rule: "#CFD9E0",
-        stamp: { DEFAULT: "#5B3FA6", soft: "#ECE7F7", deep: "#3F2A7A" },
-        alarm: "#C2412A",
-        go: "#2E7A57",
+        night: "#0B1020",
+        panel: { DEFAULT: "#121A2E", up: "#18223B" },
+        line: "#26314F",
+        snow: "#E9EDF7",
+        mute: "#97A3BF",
+        volt: { DEFAULT: "#8C7CFF", soft: "#221F4A", deep: "#6B5AF0" },
+        data: "#3DD6F5",
+        ok: "#3DDC97",
+        warn: "#FFB547",
+        bad: "#FF6B6B",
       },
       fontFamily: {
         sans: ["var(--font-archivo)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
-      maxWidth: { page: "78rem" },
+      maxWidth: { page: "80rem" },
     },
   },
   plugins: [],

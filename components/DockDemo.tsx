@@ -83,10 +83,10 @@ function run(raw: string) {
   lines.forEach((l) => {
     const qtyOk = /^\d+(\.\d+)?$/.test(l.qty);
     if (!qtyOk) checks.push({ ok: false, text: `Line ${l.pos}: quantity "${l.qty}" is not a number` });
-    if (!UNITS.includes(l.uom)) checks.push({ ok: false, text: `Line ${l.pos}: unit "${l.uom}" is not mapped to an SAP unit` });
+    if (!UNITS.includes(l.uom)) checks.push({ ok: false, text: `Line ${l.pos}: unit "${l.uom}" is not mapped to an ERP unit` });
     const sys = SYSTEM_PRICES[l.sku];
     if (!sys) {
-      checks.push({ ok: false, text: `Line ${l.pos}: material ${l.sku || "(blank)"} not found in SAP` });
+      checks.push({ ok: false, text: `Line ${l.pos}: material ${l.sku || "(blank)"} not found in the ERP` });
     } else if (Number.isFinite(l.price) && Math.abs(sys.price - l.price) > 0.004) {
       mismatches.push({ sku: l.sku, name: sys.name, po: l.price, sys: sys.price, qty: Number(l.qty) || 0 });
     }
@@ -113,27 +113,30 @@ export default function DockDemo() {
   const exposure = result.mismatches.reduce((sum, m) => sum + Math.abs(m.sys - m.po) * m.qty, 0);
 
   return (
-    <section id="dock" aria-labelledby="dock-title" className="py-16 md:py-24">
+    <section id="playground" aria-labelledby="dock-title" className="border-t border-line py-20 md:py-28">
       <div className="grid gap-6 md:grid-cols-[1fr_1fr] md:items-end">
-        <h2 id="dock-title" className="wide text-3xl font-bold md:text-[2.6rem]">
-          Try the receiving dock
-        </h2>
-        <p className="text-steel md:text-right">
-          A customer purchase order arrives as EDI. Watch it get validated, mapped to an SAP IDoc, and price-checked,
-          the same steps my real interfaces run. Edit any price and run it again.
+        <div>
+          <p className="text-sm font-semibold text-data">Integration playground</p>
+          <h2 id="dock-title" className="wider mt-2 text-4xl font-extrabold leading-[1.12] md:text-[3.2rem] md:leading-[1.12]">
+            Break an order. Watch it get caught.
+          </h2>
+        </div>
+        <p className="text-mute md:text-right">
+          A customer purchase order arrives as an EDI 850. It gets validated, mapped to an ERP order document and
+          price-checked, the same steps my production interfaces run. Edit any price or quantity and run it again.
         </p>
       </div>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-start">
-        <div className="min-w-0 rounded-[3px] border-2 border-ink bg-white">
-          <div className="flex flex-wrap gap-2 border-b border-rule p-4" role="group" aria-label="Sample documents">
+        <div className="min-w-0 overflow-hidden rounded-2xl border border-line bg-panel">
+          <div className="flex flex-wrap gap-2 border-b border-line p-4" role="group" aria-label="Sample documents">
             {PRESETS.map((p) => (
               <button
                 key={p.id}
                 onClick={() => choose(p.id)}
                 aria-pressed={preset === p.id}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                  preset === p.id ? "bg-ink text-white" : "bg-frost text-ink hover:bg-rule"
+                  preset === p.id ? "bg-volt text-night" : "bg-panel-up text-mute hover:text-snow"
                 }`}
               >
                 {p.label}
@@ -152,35 +155,35 @@ export default function DockDemo() {
             }}
             spellCheck={false}
             rows={14}
-            className="block w-full resize-y bg-white p-4 font-mono text-[13px] leading-relaxed text-ink outline-none"
+            className="block w-full resize-y bg-night/60 p-4 font-mono text-[13px] leading-relaxed text-data outline-none"
           />
-          <div className="flex items-center justify-between gap-4 border-t border-rule p-4">
-            <p className="text-sm text-steel">Sample data. The customer and prices are made up.</p>
-            <button onClick={() => setSubmitted(text)} className="rounded-full bg-stamp px-5 py-2.5 font-semibold text-white hover:bg-stamp-deep">
+          <div className="flex items-center justify-between gap-4 border-t border-line p-4">
+            <p className="text-sm text-mute">Sample data. The customer and prices are made up.</p>
+            <button onClick={() => setSubmitted(text)} className="rounded-full bg-volt px-5 py-2.5 font-semibold text-night hover:bg-snow">
               Run the check
             </button>
           </div>
         </div>
 
         <div key={submitted} className="rise min-w-0 space-y-5">
-          <div className="rounded-[3px] border-2 border-ink bg-white p-5">
+          <div className="rounded-2xl border border-line bg-panel p-5">
             <div className="flex items-center justify-between gap-4">
               <h3 className="wide text-lg font-bold">Validation</h3>
               <span
-                className={`rounded-full px-3 py-1 text-sm font-semibold text-white ${
-                  !result.structuralOk ? "bg-alarm" : result.mismatches.length ? "bg-stamp" : "bg-go"
+                className={`rounded-full px-3 py-1 text-sm font-semibold text-night ${
+                  !result.structuralOk ? "bg-bad" : result.mismatches.length ? "bg-warn" : "bg-ok"
                 }`}
               >
-                IDoc {status}
+                Order {status}
               </span>
             </div>
             <ul className="mt-4 space-y-2 text-[15px]">
               {result.checks.map((c, i) => (
                 <li key={i} className="flex gap-2.5">
-                  <span aria-hidden="true" className={`mt-0.5 font-bold ${c.ok ? "text-go" : "text-alarm"}`}>
+                  <span aria-hidden="true" className={`mt-0.5 font-bold ${c.ok ? "text-ok" : "text-bad"}`}>
                     {c.ok ? "✓" : "✕"}
                   </span>
-                  <span className={c.ok ? "" : "font-semibold text-alarm"}>
+                  <span className={c.ok ? "text-snow/90" : "font-semibold text-bad"}>
                     <span className="sr-only">{c.ok ? "Pass: " : "Fail: "}</span>
                     {c.text}
                   </span>
@@ -190,9 +193,9 @@ export default function DockDemo() {
           </div>
 
           {result.structuralOk && (
-            <div className="rounded-[3px] border-2 border-rule bg-white p-5">
-              <h3 className="wide text-lg font-bold">Mapped to SAP ORDERS05</h3>
-              <pre className="mt-3 overflow-x-auto font-mono text-[13px] leading-relaxed text-ink">
+            <div className="rounded-2xl border border-line bg-panel p-5">
+              <h3 className="wide text-lg font-bold">Mapped to an ERP order (ORDERS05)</h3>
+              <pre className="mt-3 overflow-x-auto font-mono text-[13px] leading-relaxed text-data">
 {`E1EDK01  BELNR ${result.beg?.[3]}
 E1EDKA1  PARVW WE  PARTN ${result.n1?.[4]}  ${result.n1?.[2]}
 ${result.lines
@@ -203,8 +206,8 @@ ${result.lines
           )}
 
           {result.structuralOk && result.mismatches.length > 0 && (
-            <div className="rounded-[3px] border-2 border-stamp bg-stamp-soft p-5">
-              <h3 className="wide text-lg font-bold text-stamp-deep">Email to sales, before invoicing</h3>
+            <div className="rounded-2xl border border-warn/60 bg-warn/10 p-5">
+              <h3 className="wide text-lg font-bold text-warn">Email to sales, before invoicing</h3>
               <p className="mt-2 text-[15px]">
                 PO {result.beg?.[3]} from {result.n1?.[2]} has {result.mismatches.length} price{" "}
                 {result.mismatches.length === 1 ? "difference" : "differences"}. Please confirm with the buyer.
@@ -223,8 +226,8 @@ ${result.lines
           )}
 
           {!result.structuralOk && (
-            <p className="rounded-[3px] border-2 border-alarm bg-white p-5 text-[15px]">
-              In production this becomes an IDoc in status 51 with the failed checks attached, and the partner&apos;s owner
+            <p className="rounded-2xl border border-bad/60 bg-bad/10 p-5 text-[15px]">
+              In production this document is held in an error status with the failed checks attached, and the partner&apos;s owner
               gets the error the same night instead of the customer calling about a missing order.
             </p>
           )}
