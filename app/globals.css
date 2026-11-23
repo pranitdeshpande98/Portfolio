@@ -3,38 +3,37 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
+body { @apply bg-night text-snow antialiased; }
+::selection { background: #8c7cff; color: #0b1020; }
 
-body {
-  @apply bg-white text-ink antialiased;
+.wide { font-stretch: 116%; letter-spacing: -0.01em; }
+.wider { font-stretch: 125%; letter-spacing: -0.02em; }
+h1, h2, h3 { line-height: 1.1; text-rendering: optimizeLegibility; }
+
+/* blueprint grid behind the hero */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(140,124,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140,124,255,0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 70%);
 }
+.glow { box-shadow: 0 0 0 1px rgba(140,124,255,0.35), 0 30px 80px -30px rgba(140,124,255,0.45); }
 
-::selection { background: #7fd8be; color: #10181b; }
-
-a:focus-visible,
-button:focus-visible,
-summary:focus-visible {
-  outline: 3px solid #f2b33d;
+a:focus-visible, button:focus-visible, textarea:focus-visible, [role="tab"]:focus-visible {
+  outline: 3px solid #3dd6f5;
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-h1, h2, h3 {
-  line-height: 1.15;
-  text-rendering: optimizeLegibility;
-}
-
-.bubble-in {
-  animation: bubble-in 0.35s ease-out both;
-}
-
-@keyframes bubble-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: none; }
-}
+@keyframes step-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.step-in { animation: step-in 0.35s ease-out both; }
+@keyframes caret { 50% { opacity: 0; } }
+.caret { animation: caret 1s steps(1) infinite; }
+@keyframes flow { to { stroke-dashoffset: -24; } }
+.flow { stroke-dasharray: 6 18; animation: flow 1.2s linear infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .bubble-in { animation: none; }
+  .step-in, .caret, .flow { animation: none; }
 }
-
-a { text-decoration-skip-ink: auto; }

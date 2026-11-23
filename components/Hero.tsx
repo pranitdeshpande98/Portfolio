@@ -1,47 +1,52 @@
 import { navItems, profile } from "@/data";
-import FuseDemo from "./FuseDemo";
+import CareerTrace from "./CareerTrace";
 
 export default function Hero() {
   return (
-    <header id="top" className="rounded-b-[2.5rem] bg-cobalt text-white md:rounded-b-[4rem]">
-      <nav className="mx-auto flex max-w-page items-center justify-between px-6 py-6 md:px-10" aria-label="Main">
-        <a href="#top" className="font-display text-lg font-bold">
+    <header id="top" className="relative overflow-hidden border-b border-line">
+      <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
+
+      <nav className="relative mx-auto flex max-w-page items-center justify-between px-6 py-6 md:px-10" aria-label="Main">
+        <a href="#top" className="wide text-lg font-bold">
           {profile.name}
         </a>
-        <ul className="hidden gap-8 text-[15px] text-white/80 sm:flex">
-          {navItems.map((item) => (
+        <ul className="hidden gap-7 text-[15px] text-mute lg:flex">
+          {navItems.slice(1).map((item) => (
             <li key={item.name}>
-              <a href={item.link} className="hover:text-white">
+              <a href={item.link} className="hover:text-snow">
                 {item.name}
               </a>
             </li>
           ))}
         </ul>
+        <a href={`mailto:${profile.email}`} className="rounded-full bg-snow px-5 py-2.5 text-sm font-semibold text-night hover:bg-volt">
+          Email me
+        </a>
       </nav>
 
-      <div className="mx-auto grid max-w-page items-center gap-12 px-6 pb-20 pt-10 md:px-10 md:pb-28 md:pt-16 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <div>
-          <p className="text-[17px] text-white/75">
-            {profile.role}, {profile.location}
-          </p>
-          <h1 className="mt-5 font-display text-[2.7rem] font-bold leading-[1.12] tracking-[-0.01em] md:text-[4.1rem]">
-            I build AI agents that people trust with real work.
+      <div className="relative mx-auto max-w-page px-6 pb-16 pt-6 md:px-10 md:pt-12">
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+          <h1 className="wider text-[2.7rem] font-extrabold leading-[1.06] md:text-[4.6rem] md:leading-[1.04]">
+            I build AI agents that <span className="text-volt">hold up in production.</span>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/85">
-            Evals, guardrails and a human approval step come standard. So does the plumbing:
-            payroll files, ERP data and EDI partners are where I spend my days at Bachoco, where my
-            HR assistant now answers questions for about 4,500 employees.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a href="#work" className="rounded-full bg-white px-6 py-3 font-semibold text-cobalt transition-colors hover:bg-mint hover:text-ink">
-              See my work
-            </a>
-            <a href={`mailto:${profile.email}`} className="rounded-full border border-white/60 px-6 py-3 font-semibold transition-colors hover:border-white hover:bg-white/10">
-              Email me
-            </a>
+          <div>
+            <p className="text-lg leading-relaxed text-mute">
+              Not demos. My LLM assistant answers questions for all 4,500 employees at a food producer, wired into real HR,
+              ERP and finance systems. Below is my career the way I&apos;d debug it: as a trace. Click any span.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href="#evals" className="rounded-full bg-volt px-6 py-3 font-semibold text-night transition-colors hover:bg-snow">
+                See how I build agents
+              </a>
+              <a href="#ask" className="rounded-full border border-line bg-panel/60 px-6 py-3 font-semibold transition-colors hover:border-volt">
+                Ask about my work
+              </a>
+            </div>
           </div>
         </div>
-        <FuseDemo />
+        <div className="mt-12">
+          <CareerTrace />
+        </div>
       </div>
     </header>
   );

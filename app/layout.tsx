@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const text = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-text", display: "swap" });
+const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Pranit Deshpande | Forward Deployed Engineer",
+  title: "Pranit Deshpande | Software and forward deployed engineer",
   description:
-    "Forward deployed and software engineer who puts LLM agents into production and connects them to enterprise systems: ERP, payroll, EDI and data pipelines.",
+    "I ship AI agents and integrations into real enterprise systems: an HR assistant used by 4,500 employees, EDI with 60 partners, and data pipelines processing millions of rows.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${text.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${mono.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );
